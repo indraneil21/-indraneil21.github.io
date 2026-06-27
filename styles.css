@@ -1,0 +1,461 @@
+:root {
+    --background-color: #FFE8E8;
+    --about-background-color: #e5e7ee;
+    --text-color: #333333;
+    --accent-color: #FF4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 1.5s ease;
+}
+
+main {
+    flex-grow: 1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem 6rem;
+    z-index: 2;
+}
+
+.logo .circle {
+    width: 60px;
+    aspect-ratio: 1;
+    background-color: var(--accent-color);
+    --g: /25.486% 25.486% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
+    mask: 93.126% 75.302% var(--g),
+        66.773% 97.103% var(--g),
+        32.571% 96.864% var(--g),
+        6.525% 74.697% var(--g),
+        0.821% 40.974% var(--g),
+        18.129% 11.474% var(--g),
+        50.349% 0.001% var(--g),
+        82.406% 11.923% var(--g),
+        99.3% 41.662% var(--g),
+        radial-gradient(100% 100%, #000 35.01%, #0000 calc(35.01% + 1px));
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-height: calc(100vh - 300px);
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 0 6rem;
+}
+
+/* Make the home page fit a single viewport like the about page */
+.home-page {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.home-page .hero {
+    min-height: 1;
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.home-page .hero-image {
+    bottom: 1;
+}
+
+.intro-text {
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 350;
+    line-height: 1.3;
+    margin-bottom: 5rem;
+}
+
+.cta {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 200;
+}
+
+.hero-image {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 1000px;
+    position: absolute;
+    right: -50px;
+    bottom: -150px;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: rotate(-5deg) translateY(-10px);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 1200px) {
+    .hero-image {
+        right: -20px;
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-image {
+        right: 0;
+        max-width: 600px;
+    }
+
+    nav,
+    .hero,
+    .projects {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+
+    .hero-image {
+        position: relative;
+        width: 100%;
+        width: 400px;
+        right: auto;
+        bottom: auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    nav,
+    .projects {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0;
+    }
+}
+
+.projects {
+    margin: 0;
+    padding: 8rem 6rem 8rem 6rem;
+    background-color: white;
+    position: relative;
+    flex-grow: 1;
+}
+
+.projects::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2rem;
+    /* Reduced to match footer height */
+    background-color: white;
+    height: 100%;
+    /* Changed to 100% to match content */
+    z-index: -1;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem;
+    max-width: 1500px;
+    margin: -40px auto;
+}
+
+.project-item {
+    position: relative;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}
+
+.project-item h2 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 350;
+}
+
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    body {
+        padding: 2rem;
+    }
+}
+
+footer {
+    padding: 2rem 0 4rem 0;
+    /* Adjusted padding */
+    margin: 0;
+    background-color: white;
+    border-top: 1px solid #E0E0E0;
+    position: relative;
+    /* Ensure footer is positioned correctly */
+}
+
+.footer-content {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.copyright {
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+.social-links {
+    display: flex;
+    gap: 3.5rem;
+}
+
+.social-icon img {
+    width: 32px;
+    height: 32px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover img {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+}
+
+/* About Page Styles */
+.about-page {
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--about-background-color);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    /* Adjusted column widths */
+    gap: 12rem 4rem;
+    /* First value for row gap, second for column gap */
+    padding: 6rem 6rem;
+}
+
+.intro-section {
+    grid-column: 1;
+}
+
+.intro-section h1 {
+    font-size: 2.5rem;
+    /* Increased font size */
+    font-weight: 350;
+    /* Lighter weight to match main page */
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.intro-section h1 span {
+    position: relative;
+    cursor: pointer;
+}
+
+.intro-section h1 span:hover::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-image: url('images/profile-placeholder.jpg');
+    background-size: cover;
+    top: -100px;
+    left: 220%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.intro-section p {
+    font-size: 2rem;
+    /* Increased font size */
+    font-weight: 350;
+    /* Lighter weight */
+    line-height: 1.3;
+    /* Adjusted line height */
+    margin-bottom: 2rem;
+}
+
+.contact-section p {
+    font-size: 2rem;
+    /* Match other text sizes */
+    font-weight: 350;
+    /* Lighter weight */
+    line-height: 1.3;
+    /* Match other line heights */
+    margin-bottom: 2rem;
+}
+
+.experience-section,
+.education-section {
+    padding-top: 1rem;
+    /* Add some top padding to align with content */
+}
+
+.experience-section h2,
+.education-section h2 {
+    font-size: 2rem;
+    font-weight: 350;
+    margin-bottom: 3rem;
+}
+
+.experience-item,
+.education-item {
+    margin-bottom: 3rem;
+    /* Increased spacing between items */
+}
+
+.experience-item h3,
+.education-item h3 {
+    font-size: 1.5rem;
+    /* Increased font size */
+    font-weight: 300;
+    /* Match weight */
+    margin-bottom: 0.5rem;
+}
+
+.experience-item p,
+.education-item p {
+    font-size: 1.25rem;
+    /* Adjusted font size */
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.5;
+    font-weight: 300;
+    /* Lighter weight */
+}
+
+.social-links {
+    display: flex;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.social-icon img {
+    width: 35px;
+    /* Increased icon size */
+    height: 35px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    vertical-align: middle;
+}
+
+.social-icon:hover img {
+    opacity: 1;
+}
+
+/* Add responsive styles for about page */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .intro-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro-section p,
+    .contact-section p {
+        font-size: 1.5rem;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Add smooth scrolling */
+}

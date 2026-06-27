@@ -1,0 +1,152 @@
+ /* Project Detail Page Styles */
+.project-detail-page {
+    background-color: white;
+}
+
+.project-hero-image {
+    width: 100%;
+    max-width: 100%;  /* Adjust this value to decrease the size */
+    margin-left: auto;  /* Center the image */
+    margin-right: auto;
+}
+
+.project-hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 0 6rem 4rem 6rem;
+    margin-top: 4rem;
+}
+
+.project-title {
+    margin-bottom: 0;
+}
+
+.project-title h1 {
+    font-size: 3.5rem;
+    font-weight: 350;
+    margin-bottom: 1rem;
+}
+
+.project-category {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.project-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    margin-bottom: 6rem;
+}
+
+.project-description h2 {
+    font-size: 2rem;
+    font-weight: 350;
+    margin-bottom: 1.5rem;
+}
+
+.project-description p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.project-metadata {
+    border-left: 1px solid #e0e0e0;
+    padding-left: 2rem;
+}
+
+.metadata-item {
+    margin-bottom: 2rem;
+}
+
+.metadata-item h3 {
+    font-size: 1.25rem;
+    font-weight: 350;
+    margin-bottom: 0.5rem;
+}
+
+.metadata-item p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #666;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    margin-bottom: 6rem;
+}
+
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.back-to-projects, 
+.next-project {
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.back-to-projects:hover, 
+.next-project:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .project-hero,
+    .project-content {
+        padding: 3rem 4rem;
+    }
+    
+    .project-info {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .project-metadata {
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+        padding-left: 0;
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-hero,
+    .project-content {
+        padding: 2rem;
+    }
+    
+    .project-title h1 {
+        font-size: 2.5rem;
+    }
+    
+}
