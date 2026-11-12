@@ -136,18 +136,47 @@ h1 {
     right: clamp(-50px, -2vw, 0px);
     bottom: clamp(-60px, -3vw, 0px);
     z-index: 1;
-    transition: transform 0.3s ease;
-}
-
-.hero-image:hover {
-    transform: rotate(-5deg) translateY(-10px);
 }
 
 .hero-image img {
     width: 100%;
     height: auto;
     object-fit: contain;
+    display: block;
+    -webkit-user-drag: none;
 }
+
+/* Elephant animation (elephant.js): walk > settle > hop > img, so the
+   motions stack. Pivot sits at the elephant's feet, not the image centre
+   (the PNG has transparent space below the feet). */
+.elephant-walk,
+.elephant-settle,
+.elephant-hop {
+    transform-origin: 50% 84%;
+}
+
+.elephant-hop {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.elephant-hop:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+/* Dust puffs on landing after a hop */
+.elephant-puff {
+    position: absolute;
+    top: 84%;
+    width: 2.2%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid rgba(51, 51, 51, 0.18);
+    pointer-events: none;
+}
+
 
 @media (max-width: 768px) {
 
